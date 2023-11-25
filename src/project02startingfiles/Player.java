@@ -10,4 +10,5 @@ package project02startingfiles;
  */
 public abstract class Player {
 
+    // player class
 }
