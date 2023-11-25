@@ -10,5 +10,33 @@ package project02startingfiles;
  */
 public abstract class Player {
 
-    // player class
+    private int health;
+    private int score;
+
+    public Player(int health, int score) {
+        this.health = health;
+        this.score = score;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public abstract String toString();
+
+    public abstract String getSpecialMove();
+
+    public abstract void useSpecialMove();
 }
