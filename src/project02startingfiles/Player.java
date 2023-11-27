@@ -13,30 +13,34 @@ public abstract class Player {
     private int health;
     private int score;
 
-    public Player(int health, int score) {
-        this.health = health;
-        this.score = score;
+    public Player() {
+        health = 10;
+        score = 0;
+    }
+
+    public abstract String getSpecialMove();
+
+    public abstract void useSpecialMove();
+
+    public void increaseScore() {
+        score++;
+    }
+
+    public void decreaseHealth() {
+        health--;
     }
 
     public int getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
     public int getScore() {
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " Status:\nHealth: " + health + "\nScore: " + score + "\nThe "
+                + getClass().getSimpleName() + "'s special move is '" + getSpecialMove() + "'";
     }
-
-    public abstract String toString();
-
-    public abstract String getSpecialMove();
-
-    public abstract void useSpecialMove();
 }

@@ -10,15 +10,6 @@ package project02startingfiles;
  */
 public class Healer extends Player {
 
-    public Healer(int health, int score) {
-        super(health, score);
-    }
-
-    @Override
-    public String toString() {
-        return "Healer - Health: " + getHealth() + ", Score: " + getScore();
-    }
-
     @Override
     public String getSpecialMove() {
         return "Use Sleeping Powder";
@@ -26,7 +17,6 @@ public class Healer extends Player {
 
     @Override
     public void useSpecialMove() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("The Healer uses sleeping powder!");
     }
-
 }

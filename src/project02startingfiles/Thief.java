@@ -10,23 +10,13 @@ package project02startingfiles;
  */
 public class Thief extends Player {
 
-    public Thief(int health, int score) {
-        super(health, score);
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
     @Override
     public String getSpecialMove() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "Sneak By";
     }
 
     @Override
     public void useSpecialMove() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("The Thief sneaks by!");
     }
-
 }

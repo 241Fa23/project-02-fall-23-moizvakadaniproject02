@@ -10,15 +10,6 @@ package project02startingfiles;
  */
 public class Knight extends Player {
 
-    public Knight(int health, int score) {
-        super(health, score);
-    }
-
-    @Override
-    public String toString() {
-        return "Knight - Health: " + getHealth() + ", Score: " + getScore();
-    }
-
     @Override
     public String getSpecialMove() {
         return "Slash with Sword";
@@ -26,7 +17,6 @@ public class Knight extends Player {
 
     @Override
     public void useSpecialMove() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("The Knight slashes with their sword!");
     }
-
 }
