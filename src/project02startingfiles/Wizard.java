@@ -20,4 +20,9 @@ public class Wizard extends Player {
         System.out.println("The Wizard casts a spell!");
     }
 
+    @Override
+    public String toString() {
+        return "Wizard Status:\nHealth: " + health + "\nScore: " + score
+                + "\nThe Wizard's special move is '" + getSpecialMove() + "'";
+    }
 }

@@ -25,6 +25,7 @@ public class Project02StartingFiles {
         System.out.println("Stay alive and increase your score!");
         System.out.println("\nChoose a character..");
         System.out.println("(k)Knight I| (h)Healer I| (w)wizard || (t)Thief");
+        System.out.print(">>");
 
         String choice = scanner.nextLine().toUpperCase();
         Player player;
@@ -105,42 +106,44 @@ public class Project02StartingFiles {
         return foes[adjustedScenario];
     }
 
-    private static void handleFoeAttack(Player player, Random random) {
+    private static void handleFoeAttack(Player player) {
         System.out.println("How would you like to handle this?");
-        System.out.println("(s) Special Move | (r) Run?");
-        String choice = "";
+        System.out.println("(s) Special Move || (r) Run");
 
-        while (!choice.equals("S") && !choice.equals("R")) {
-            choice = choice.toUpperCase();
-            System.out.print(">>");
-            choice = choice.toUpperCase();
-        }
+        char choice = scanner.next().toLowerCase().charAt(0);
 
-        if (choice.equals("S")) {
+        if (choice == 's') {
             player.useSpecialMove();
-            if (random.nextBoolean()) {
-                System.out.println("Player wins! Increase score by 2 points!");
+            if (random.nextInt(100) < 60) { // Player wins 60% of the time
+                System.out.println(player.getClass().getSimpleName() + " wins! Increase score by 2 points!");
                 player.increaseScore();
             } else {
-                System.out.println("Player loses! Decrease health by 1 point.");
+                System.out.println(player.getClass().getSimpleName() + " loses! Decrease health by 1 point.");
                 player.decreaseHealth();
             }
-        } else {
-            if (random.nextBoolean()) {
+        } else if (choice == 'r') {
+            if (random.nextInt(100) < 50) { // Running successful 50% of the time
                 System.out.println("Running successful! Increase score by 1 point.");
                 player.increaseScore();
             } else {
                 System.out.println("Running unsuccessful! Decrease health by 1 point.");
                 player.decreaseHealth();
             }
+        } else {
+            System.out.println("Invalid choice. Please try again.");
+            handleFoeAttack(player);
         }
 
-        System.out.println(player.toString());
+        System.out.println(player);
+
+        if (player.getHealth() <= 0) {
+            endGame(player);
+        }
     }
 
     private static void endGame(Player player) {
-        System.out.println("The game has come to an end! Your final stats:");
-        System.out.println(player.toString());
+        System.out.println("\nThe game has come to an end! Your final stats:");
+        System.out.println(player);
         System.out.println("Thanks for playing!");
     }
 }

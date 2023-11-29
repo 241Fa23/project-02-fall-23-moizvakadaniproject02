@@ -19,4 +19,10 @@ public class Healer extends Player {
     public void useSpecialMove() {
         System.out.println("The Healer uses sleeping powder!");
     }
+
+    @Override
+    public String toString() {
+        return "Healer Status:\nHealth: " + health + "\nScore: " + score
+                + "\nThe Healer's special move is '" + getSpecialMove() + "'";
+    }
 }
