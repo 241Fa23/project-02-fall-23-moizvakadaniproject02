@@ -26,6 +26,7 @@ public class Project02StartingFiles {
         System.out.println("Stay alive and increase your score!");
         System.out.println("\nChoose a character..");
         System.out.println("(k)Knight I| (h)Healer I| (w)wizard || (t)Thief");
+        System.out.print(">>");
 
         char choice = scanner.next().toLowerCase().charAt(0);
         Player player;
