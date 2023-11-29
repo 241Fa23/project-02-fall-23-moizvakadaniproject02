@@ -19,4 +19,10 @@ public class Knight extends Player {
     public void useSpecialMove() {
         System.out.println("The Knight slashes with their sword!");
     }
+
+    @Override
+    public String toString() {
+        return "Knight Status:\nHealth: " + health + "\nScore: " + score
+                + "\nThe Knight's special move is '" + getSpecialMove() + "'";
+    }
 }

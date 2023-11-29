@@ -10,8 +10,8 @@ package project02startingfiles;
  */
 public abstract class Player {
 
-    private int health;
-    private int score;
+    int health;
+    int score;
 
     public Player() {
         health = 10;
