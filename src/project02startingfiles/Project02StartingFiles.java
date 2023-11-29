@@ -14,8 +14,8 @@ import java.util.Scanner;
  */
 public class Project02StartingFiles {
 
-    Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
+    private static Scanner scanner = new Scanner(System.in);
+    private static Random random = new Random();
 
     /**
      * @param args the command line arguments
