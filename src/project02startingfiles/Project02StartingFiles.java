@@ -14,61 +14,42 @@ import java.util.Scanner;
  */
 public class Project02StartingFiles {
 
+    Scanner scanner = new Scanner(System.in);
+    Random random = new Random();
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
 
         System.out.println("Welcome to JavaQuest!");
         System.out.println("Stay alive and increase your score!");
         System.out.println("\nChoose a character..");
         System.out.println("(k)Knight I| (h)Healer I| (w)wizard || (t)Thief");
 
-        String choice = scanner.nextLine().toUpperCase();
-        Player player;
-
-        switch (choice) {
-            case "K":
-                player = new Knight();
-                break;
-            case "H":
-                player = new Healer();
-                break;
-            case "W":
-                player = new Wizard();
-                break;
-            case "T":
-                player = new Thief();
-                break;
-            default:
-                System.out.println("Invalid choice. Exiting the game.");
-                return;
-        }
-
         System.out.println("\nWelcome, " + player.getClass().getSimpleName() + "!");
-        playGame(scanner, random, player);
+        playGame(player);
     }
 
-    private static void playGame(Scanner scanner, Random random, Player player) {
-        while (true) {
-            System.out.println("What would you like to do?");
-            System.out.println("{?}Status Report || {n}{s}{e}{w} Move 1 Space North, South, East, or West ||{q}Quit");
+    private static void playGame(Player player) {
+        while (player.getHealth() > 0) {
+            System.out.println("\nWhat would you like to do?");
+            System.out.println("(?) Status Report || (n) Move North || (s) Move South || (e) Move East || (w) Move West || (q) Quit");
+            System.out.print(">>");
 
-            String action = scanner.nextLine().toUpperCase();
+            char action = scanner.next().toLowerCase().charAt(0);
 
             switch (action) {
-                case "?":
-                    System.out.println(player.toString());
+                case '?':
+                    System.out.println(player);
                     break;
-                case "N":
-                case "S":
-                case "E":
-                case "W":
-                    move(player, random, action);
+                case 'n':
+                case 's':
+                case 'e':
+                case 'w':
+                    move(player, action);
                     break;
-                case "Q":
+                case 'q':
                     endGame(player);
                     return;
                 default:
@@ -77,17 +58,17 @@ public class Project02StartingFiles {
         }
     }
 
-    private static void move(Player player, Random random, String direction) {
+    private static void move(Player player, char direction) {
         int scenario = random.nextInt(5); // 20% chance of foe attack
 
-        if (scenario != 0) {
+        if (scenario == 0) {
             // Benign scene
             player.increaseScore();
             System.out.println(getSceneDescription(scenario));
         } else {
             // Foe attack
             System.out.println("Oh no! You are being attacked by a " + getFoe(scenario) + "!");
-            handleFoeAttack(player, random);
+            handleFoeAttack(player);
         }
     }
 
