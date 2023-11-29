@@ -27,6 +27,27 @@ public class Project02StartingFiles {
         System.out.println("\nChoose a character..");
         System.out.println("(k)Knight I| (h)Healer I| (w)wizard || (t)Thief");
 
+        char choice = scanner.next().toLowerCase().charAt(0);
+        Player player;
+
+        switch (choice) {
+            case 'k':
+                player = new Knight();
+                break;
+            case 'h':
+                player = new Healer();
+                break;
+            case 'w':
+                player = new Wizard();
+                break;
+            case 't':
+                player = new Thief();
+                break;
+            default:
+                System.out.println("Invalid choice. Exiting the game.");
+                return;
+        }
+
         System.out.println("\nWelcome, " + player.getClass().getSimpleName() + "!");
         playGame(player);
     }
