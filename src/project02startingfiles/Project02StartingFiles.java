@@ -14,17 +14,19 @@ import java.util.Scanner;
  */
 public class Project02StartingFiles {
 
+    private static Scanner scanner = new Scanner(System.in);
+    private static Random random = new Random();
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
 
         System.out.println("Welcome to JavaQuest!");
         System.out.println("Stay alive and increase your score!");
         System.out.println("\nChoose a character..");
         System.out.println("(k)Knight I| (h)Healer I| (w)wizard || (t)Thief");
+        System.out.print(">>");
 
         String choice = scanner.nextLine().toUpperCase();
         Player player;
