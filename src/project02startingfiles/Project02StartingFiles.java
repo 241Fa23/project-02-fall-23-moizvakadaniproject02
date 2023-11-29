@@ -80,7 +80,7 @@ public class Project02StartingFiles {
     private static void move(Player player, Random random, String direction) {
         int scenario = random.nextInt(5); // 20% chance of foe attack
 
-        if (scenario == 0) {
+        if (scenario != 0) {
             // Benign scene
             player.increaseScore();
             System.out.println(getSceneDescription(scenario));
@@ -112,7 +112,6 @@ public class Project02StartingFiles {
 
         while (!choice.equals("S") && !choice.equals("R")) {
             choice = choice.toUpperCase();
-            System.out.print(">>");
             choice = choice.toUpperCase();
         }
 
@@ -134,7 +133,6 @@ public class Project02StartingFiles {
                 player.decreaseHealth();
             }
         }
-
         System.out.println(player.toString());
     }
 
